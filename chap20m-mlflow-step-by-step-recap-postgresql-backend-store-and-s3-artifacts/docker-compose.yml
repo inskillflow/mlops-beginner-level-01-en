@@ -1,0 +1,63 @@
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres-recap-20m
+    environment:
+      POSTGRES_DB:       mlflowdb
+      POSTGRES_USER:     mlflowuser
+      POSTGRES_PASSWORD: mlflowpassword
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - recap-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mlflowuser -d mlflowdb"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  mlflow:
+    build:
+      context: ./mlflow
+    image: mlops/mlflow-pg-recap:latest
+    container_name: mlflow-recap-20m
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-artifacts:/mlflow/mlruns
+    networks:
+      - recap-net
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:5000').status==200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  trainer:
+    build:
+      context: ./trainer
+    image: mlops/trainer-recap:latest
+    container_name: trainer-recap-20m
+    environment:
+      MLFLOW_TRACKING_URI: "http://mlflow:5000"
+    volumes:
+      - ./data:/code/data
+    networks:
+      - recap-net
+    depends_on:
+      mlflow:
+        condition: service_healthy
+
+volumes:
+  postgres-data:
+  mlflow-artifacts:
+
+networks:
+  recap-net:
+    driver: bridge

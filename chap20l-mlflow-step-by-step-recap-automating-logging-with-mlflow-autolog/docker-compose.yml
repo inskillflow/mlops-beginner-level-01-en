@@ -1,0 +1,42 @@
+services:
+  mlflow:
+    build:
+      context: ./mlflow
+    image: mlops/mlflow-recap:latest
+    container_name: mlflow-recap-20l
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-db:/mlflow/database
+      - mlflow-artifacts:/mlflow/mlruns
+    networks:
+      - recap-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:5000').status==200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  trainer:
+    build:
+      context: ./trainer
+    image: mlops/trainer-recap:latest
+    container_name: trainer-recap-20l
+    environment:
+      MLFLOW_TRACKING_URI: "http://mlflow:5000"
+    volumes:
+      - ./data:/code/data
+    networks:
+      - recap-net
+    depends_on:
+      mlflow:
+        condition: service_healthy
+
+volumes:
+  mlflow-db:
+  mlflow-artifacts:
+
+networks:
+  recap-net:
+    driver: bridge
