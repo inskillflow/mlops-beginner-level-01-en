@@ -483,7 +483,7 @@ mlflow.projects.run(
 
 …or one CLI command: `mlflow run . -e ElasticNet -P alpha=0.3`. Same project runs locally, on git, on a remote host, in a Docker image — without changing the trainer code.
 
-Next: **[chapter 20aa](./20aa-practical-work-15aa-mlflow-step-by-step-recap-mlflow-cli-doctor-artifacts-experiments-runs.md)** — meet the **MLflow CLI** (`mlflow doctor`, `mlflow artifacts list/download`, `mlflow experiments create/rename/delete/restore`, `mlflow runs list/describe/delete/restore`, `mlflow db upgrade`). The everyday admin toolkit for any MLflow installation.
+Next: **[chapter 20aa](./20z1-practical-work-15aa-mlflow-step-by-step-recap-mlflow-cli-doctor-artifacts-experiments-runs.md)** — meet the **MLflow CLI** (`mlflow doctor`, `mlflow artifacts list/download`, `mlflow experiments create/rename/delete/restore`, `mlflow runs list/describe/delete/restore`, `mlflow db upgrade`). The everyday admin toolkit for any MLflow installation.
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
