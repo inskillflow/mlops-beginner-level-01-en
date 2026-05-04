@@ -194,6 +194,40 @@ These three short labs let you see Streamlit, FastAPI, and MLflow **in isolation
 > [!NOTE]
 > Each `chapXX-.../` folder also has its own focused `README.md` with the local quick-start and the curl commands of that lesson.
 
+### 5.4 MLflow step-by-step recap series (20a → 20z1)
+
+This recap track revisits MLflow from first principles with one focused addition per chapter, in strict progression.
+
+| # | Lesson |
+|---|---|
+| 20a | [20a — Hello MLflow basics](./20a-practical-work-15a-mlflow-step-by-step-recap-hello-mlflow-basics.md) |
+| 20b | [20b — Printing the tracking URI](./20b-practical-work-15b-mlflow-step-by-step-recap-printing-the-tracking-uri.md) |
+| 20c | [20c — ElasticNet on red wine quality](./20c-practical-work-15c-mlflow-step-by-step-recap-elasticnet-on-red-wine-quality.md) |
+| 20d | [20d — Running training in a second Docker service](./20d-practical-work-15d-mlflow-step-by-step-recap-running-the-training-in-a-second-docker-service-with-requirements-txt.md) |
+| 20e | [20e — Passing tracking URI via environment variable](./20e-practical-work-15e-mlflow-step-by-step-recap-passing-the-tracking-uri-via-environment-variable.md) |
+| 20f | [20f — `create_experiment` with tags and custom artifact location](./20f-practical-work-15f-mlflow-step-by-step-recap-create-experiment-with-tags-and-custom-artifact-location.md) |
+| 20g | [20g — `active_run` and `last_active_run` with `start_run`/`end_run`](./20g-practical-work-15g-mlflow-step-by-step-recap-active-run-and-last-active-run-with-start-end-run.md) |
+| 20h | [20h — `log_artifacts` and bulk `log_params`/`log_metrics`](./20h-practical-work-15h-mlflow-step-by-step-recap-log-artifacts-with-log-params-and-log-metrics-bulk-versions.md) |
+| 20i | [20i — Attaching metadata with `set_tags`](./20i-practical-work-15i-mlflow-step-by-step-recap-attaching-metadata-to-runs-with-set-tags.md) |
+| 20j | [20j — Multiple runs in one experiment](./20j-practical-work-15j-mlflow-step-by-step-recap-multiple-runs-in-one-experiment.md) |
+| 20k | [20k — Multiple experiments (ElasticNet / Ridge / Lasso)](./20k-practical-work-15k-mlflow-step-by-step-recap-multiple-experiments-comparing-elasticnet-ridge-lasso.md) |
+| 20l | [20l — Automating logging with `mlflow.autolog`](./20l-practical-work-15l-mlflow-step-by-step-recap-automating-logging-with-mlflow-autolog.md) |
+| 20m | [20m — PostgreSQL backend store and S3 artifacts](./20m-practical-work-15m-mlflow-step-by-step-recap-postgresql-backend-store-and-s3-artifacts.md) |
+| 20n | [20n — Model signature (manual and `infer_signature`)](./20n-practical-work-15n-mlflow-step-by-step-recap-model-signature-manual-and-infer-signature.md) |
+| 20o | [20o — Manual signature with `Schema`/`ColSpec`](./20o-practical-work-15o-mlflow-step-by-step-recap-manual-model-signature-schema-colspec.md) |
+| 20p | [20p — `pyfunc` wrapper with joblib and conda env](./20p-practical-work-15p-mlflow-step-by-step-recap-pyfunc-sklearn-wrapper-with-joblib-and-conda-env.md) |
+| 20q | [20q — Loading pyfunc model and predicting back](./20q-practical-work-15q-mlflow-step-by-step-recap-loading-pyfunc-model-and-predicting-back.md) |
+| 20r | [20r — `mlflow.evaluate` default regressor](./20r-practical-work-15r-mlflow-step-by-step-recap-mlflow-evaluate-default-regressor.md) |
+| 20s | [20s — `mlflow.evaluate` custom metrics and scatter artifact](./20s-practical-work-15s-mlflow-step-by-step-recap-mlflow-evaluate-custom-metrics-and-scatter-artifact.md) |
+| 20t | [20t — Validation thresholds with baseline `DummyRegressor`](./20t-practical-work-15t-mlflow-step-by-step-recap-validation-thresholds-with-baseline-dummyregressor.md) |
+| 20u | [20u — `registered_model_name` with `mlflow.sklearn.log_model`](./20u-practical-work-15u-mlflow-step-by-step-recap-registered-model-name-with-mlflow-sklearn-log-model.md) |
+| 20v | [20v — `log_model` + `pickle.dump` + `log_artifact`](./20v-practical-work-15v-mlflow-step-by-step-recap-log-model-plus-pickle-dump-and-log-artifact.md) |
+| 20w | [20w — `mlflow.register_model` post-hoc and load by version](./20w-practical-work-15w-mlflow-step-by-step-recap-mlflow-register-model-post-hoc-and-load-by-version.md) |
+| 20x | [20x — Registering a model trained outside MLflow](./20x-practical-work-15x-mlflow-step-by-step-recap-registering-a-model-trained-outside-mlflow-with-cloudpickle.md) |
+| 20y | [20y — `with mlflow.start_run(...)` and `main()` pattern](./20y-practical-work-15y-mlflow-step-by-step-recap-with-start-run-context-manager-and-main-function.md) |
+| 20z | [20z — `mlflow.projects.run` with `MLproject` entry points](./20z-practical-work-15z-mlflow-step-by-step-recap-mlflow-projects-run-with-mlproject-yaml-and-entry-points.md) |
+| 20z1 | [20z1 — MLflow CLI (`doctor`, `artifacts`, `experiments`, `runs`)](./20z1-practical-work-15aa-mlflow-step-by-step-recap-mlflow-cli-doctor-artifacts-experiments-runs.md) |
+
 <p align="right"><a href="#top">↑ Back to top</a></p>
 
 ---
