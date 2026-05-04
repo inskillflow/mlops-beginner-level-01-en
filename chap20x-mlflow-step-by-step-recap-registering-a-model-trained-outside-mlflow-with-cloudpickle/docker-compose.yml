@@ -1,0 +1,52 @@
+services:
+  mlflow:
+    build:
+      context: ./mlflow
+    image: mlops/mlflow-recap:latest
+    container_name: mlflow-recap-20x
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-db:/mlflow/database
+      - mlflow-artifacts:/mlflow/mlruns
+    networks:
+      - recap-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:5000').status==200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pretrainer:
+    build:
+      context: ./pretrainer
+    image: mlops/pretrainer-no-mlflow:latest
+    container_name: pretrainer-recap-20x
+    volumes:
+      - ./data:/code/data
+      - shared:/shared
+
+  registrar:
+    build:
+      context: ./registrar
+    image: mlops/registrar-external-pickle:latest
+    container_name: registrar-recap-20x
+    environment:
+      MLFLOW_TRACKING_URI: "http://mlflow:5000"
+    volumes:
+      - shared:/shared
+    networks:
+      - recap-net
+    depends_on:
+      mlflow:
+        condition: service_healthy
+
+volumes:
+  mlflow-db:
+  mlflow-artifacts:
+  shared:
+
+networks:
+  recap-net:
+    driver: bridge

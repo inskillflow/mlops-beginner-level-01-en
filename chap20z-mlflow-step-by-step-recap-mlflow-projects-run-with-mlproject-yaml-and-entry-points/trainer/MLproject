@@ -1,0 +1,16 @@
+name: chap20z-elasticnet-project
+
+python_env: python_env.yaml
+
+entry_points:
+  ElasticNet:
+    parameters:
+      alpha:    { type: float, default: 0.4 }
+      l1_ratio: { type: float, default: 0.4 }
+    command: "python train.py --alpha {alpha} --l1_ratio {l1_ratio}"
+
+  main:
+    parameters:
+      alpha:    { type: float, default: 0.4 }
+      l1_ratio: { type: float, default: 0.4 }
+    command: "python train.py --alpha {alpha} --l1_ratio {l1_ratio}"
