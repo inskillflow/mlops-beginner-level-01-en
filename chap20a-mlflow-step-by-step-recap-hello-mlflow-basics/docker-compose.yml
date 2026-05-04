@@ -9,6 +9,8 @@ services:
     volumes:
       - mlflow-db:/mlflow/database
       - mlflow-artifacts:/mlflow/mlruns
+      - .:/work
+    working_dir: /work
     restart: unless-stopped
 
 volumes:
