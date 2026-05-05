@@ -87,10 +87,12 @@ docker-compose down
 ```
 
 
+# Troubleshooting - killing the zombies
 
 <details>
    <summary> Troubleshooting </summary> 
-> On Windows, to kill the process using port **5000**:
+
+    > On Windows, to kill the process using port **5000**:
 
 ```bat
 netstat -ano | findstr :5000
