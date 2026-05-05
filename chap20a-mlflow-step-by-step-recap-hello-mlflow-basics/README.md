@@ -79,7 +79,7 @@ rm -rf database mlruns
 ## Recap
 
 ```bash
-cd 01-mlflow-step-by-step-recap-hello-mlflow-basics
+cd chap20a-mlflow-step-by-step-recap-hello-mlflow-basics
 mkdir database mlruns
 docker compose up -d --build
 docker compose exec -d mlflow python hello_mlflow.py
