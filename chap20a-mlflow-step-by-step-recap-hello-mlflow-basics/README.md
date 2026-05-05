@@ -86,6 +86,28 @@ docker compose exec -d mlflow python hello_mlflow.py
 docker-compose down 
 ```
 
+## Recap + 
+
+```bash
+cd chap20a-mlflow-step-by-step-recap-hello-mlflow-basics
+docker-compose up -d 
+docker compose exec -d mlflow python hello_mlflow.py
+
+# docker exec -it <id> bash
+# ls
+# To retrieve the <id> hit docker ps
+# exit
+docker-compose down
+```
+
+> The equivalent of docker exec
+
+<img width="812" height="316" alt="image" src="https://github.com/user-attachments/assets/258d3834-4bcc-4850-bd67-6d525f501ec1" />
+
+
+
+
+
 
 # Troubleshooting - killing the zombies
 
