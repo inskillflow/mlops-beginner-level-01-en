@@ -57,3 +57,29 @@ chap20b-mlflow-step-by-step-recap-printing-the-tracking-uri/
 docker compose down
 rm -rf database mlruns        # delete persisted DB + artifacts
 ```
+
+
+
+## Recap
+
+> Suppose that you are still located in the first project 
+> you need to execute docker compose down to stop the mlflow server 
+> Then you can navigate to the second project directory and repeat the same steps to start the mlflow server, run the hello_mlflow.py script, and then stop the mlflow server:
+
+
+```bash
+docker compose down
+cd ../chap20b-mlflow-step-by-step-recap-printing-the-tracking-uri
+mkdir database mlruns
+docker compose up -d --build  
+docker compose exec -d mlflow python hello_mlflow.py # This command will not show you the print commands since it's running in the background (detached mode)
+docker compose exec mlflow python hello_mlflow.py  # This command will show you the 2 prints in the beging and end of execution of your .py file
+# Check your terminal logs
+# Check the http://localhost:5000
+docker-compose down 
+```
+
+
+
+
+
