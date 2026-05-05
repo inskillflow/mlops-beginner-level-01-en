@@ -85,3 +85,50 @@ docker compose up -d --build
 docker compose exec -d mlflow python hello_mlflow.py
 docker-compose down 
 ```
+
+
+
+<details>
+   <summary> Troubleshooting </summary> 
+> On Windows, to kill the process using port **5000**:
+
+```bat
+netstat -ano | findstr :5000
+```
+
+You will see something like:
+
+```bat
+TCP    127.0.0.1:5000    0.0.0.0:0    LISTENING    12345
+```
+
+The last number is the **PID**. Then kill it:
+
+```bat
+taskkill /PID 12345 /F
+```
+
+Example full sequence:
+
+```bat
+netstat -ano | findstr :5000
+taskkill /PID 12345 /F
+```
+
+To check which app it is before killing:
+
+```bat
+tasklist | findstr 12345
+```
+
+> PowerShell version:
+
+```powershell
+Get-NetTCPConnection -LocalPort 5000
+Stop-Process -Id 12345 -Force
+```
+
+
+> Port **5000** is like a door used by an application. If Flask, MLflow, FastAPI, or another server is already using this door, a new app cannot start on the same port. `netstat` finds who is using the door, and `taskkill` stops that process.
+
+</details>
