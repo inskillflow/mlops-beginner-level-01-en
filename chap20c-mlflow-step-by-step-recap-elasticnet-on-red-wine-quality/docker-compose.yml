@@ -3,14 +3,12 @@ services:
     build:
       context: ./mlflow
     image: mlops/mlflow-recap:latest
-    container_name: mlflow-recap-20c
+    container_name: mlflow-recap-20b
     ports:
       - "5000:5000"
     volumes:
-      - mlflow-db:/mlflow/database
-      - mlflow-artifacts:/mlflow/mlruns
+      - ./database:/mlflow/database     # bind mount -> host folder MUST exist
+      - ./mlruns:/mlflow/mlruns         # bind mount -> host folder MUST exist
+      - .:/work                         # so hello_mlflow.py is visible inside
+    working_dir: /work
     restart: unless-stopped
-
-volumes:
-  mlflow-db:
-  mlflow-artifacts:
