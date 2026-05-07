@@ -340,9 +340,9 @@ New-Item -ItemType Directory -Force database, mlruns
 
 docker compose up -d --build
 
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.1 --l1_ratio 0.1
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.5 --l1_ratio 0.5
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.9 --l1_ratio 0.9
+docker compose exec mlflow python train.py --alpha 0.1 --l1_ratio 0.1
+docker compose exec mlflow python train.py --alpha 0.5 --l1_ratio 0.5
+docker compose exec mlflow python train.py --alpha 0.9 --l1_ratio 0.9
 
 docker compose down
 ```
@@ -384,20 +384,19 @@ docker compose exec mlflow bash
 You may see this command:
 
 ```bash
-docker compose exec -d mlflow python train_with_mlflow.py --alpha 0.1 --l1_ratio 0.1
+docker compose exec -d mlflow python train.py --alpha 0.1 --l1_ratio 0.1
 ```
 
 It works, but it runs the script in detached mode.
 
-For students, this is less useful because they cannot see errors directly in the terminal.
 
-Recommended version:
+## Recommended version ⚠️⚠️ :
 
 ```bash
 docker compose exec mlflow python train_with_mlflow.py --alpha 0.1 --l1_ratio 0.1
 ```
 
-This way, if something goes wrong, the error appears immediately.
+This way, if something goes wrong, the error appears immediately in the console !!!!
 
 ---
 
@@ -466,7 +465,7 @@ the previous container was created incorrectly
 ## Step 4 — Run the training script again
 
 ```bash
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.1 --l1_ratio 0.1
+docker compose exec mlflow python train.py --alpha 0.1 --l1_ratio 0.1
 ```
 
 Then open:
@@ -477,7 +476,7 @@ http://localhost:5000
 
 ---
 
-# Troubleshooting 1 : port 5000 already used
+# Troubleshooting 1 : port 5000 already used ⚠️
 
 On Windows CMD:
 
@@ -506,7 +505,7 @@ Port `5000` is like a door. If another application is already using this door, M
 
 ---
 
-# Troubleshooting 2 : docker Desktop not starting
+# Troubleshooting 2 : docker Desktop not starting ⚠️
 
 
 
