@@ -295,17 +295,6 @@ It forces Docker to rebuild the image instead of reusing the previous cached ver
 
 Without `--build`, Docker may reuse the old cached configuration, and your fix may not be applied correctly.
 
-````
-
-
-
-
-
-
-
-
-
-
 ---
 
 # Final command recap
@@ -488,7 +477,7 @@ http://localhost:5000
 
 ---
 
-# Troubleshooting: port 5000 already used
+# Troubleshooting 1 : port 5000 already used
 
 On Windows CMD:
 
@@ -515,6 +504,47 @@ Port `5000` is like a door. If another application is already using this door, M
 
 
 
+---
+
+# Troubleshooting 2 : docker Desktop not starting
+
+
+
+Open **PowerShell as Administrator**, then run this:
+
+```powershell
+# 1. Stop Docker Desktop processes
+Get-Process *docker* -ErrorAction SilentlyContinue | Stop-Process -Force
+
+# 2. Stop Docker Desktop service
+Stop-Service com.docker.service -Force -ErrorAction SilentlyContinue
+
+# 3. Force-stop WSL backend used by Docker
+wsl --shutdown
+```
+
+Then wait **10–15 seconds**.
+
+To restart Docker Desktop:
+
+```powershell
+Start-Service com.docker.service
+Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe"
+```
+
+If it is still frozen, use the stronger version:
+
+```powershell
+taskkill /F /IM "Docker Desktop.exe"
+taskkill /F /IM "com.docker.backend.exe"
+taskkill /F /IM "com.docker.service.exe"
+taskkill /F /IM "dockerd.exe"
+wsl --shutdown
+```
+
+Then restart Docker Desktop manually from the Start menu.
+
+Do **not** delete Docker folders yet. First try force stop + `wsl --shutdown`.
 
 
 
