@@ -113,6 +113,21 @@ http://localhost:5000
 
 At this point, the UI may be empty or may only show the default experiment. This is normal.
 
+
+
+⚠️ Important: create `database/` and `mlruns/` before starting Docker.
+
+If you forget them, stop Docker, create the folders, and restart with `--build`:
+
+```bash
+docker compose down
+mkdir -p database mlruns
+docker compose up -d --build
+````
+
+The `--build` option forces Docker to rebuild instead of using the cache.
+
+
 ---
 
 # 4. Run experiment 1
@@ -282,20 +297,6 @@ Without `--build`, Docker may reuse the old cached configuration, and your fix m
 
 ````
 
-Short version to put in the recap:
-
-```markdown
-⚠️ Important: create `database/` and `mlruns/` before starting Docker.
-
-If you forget them, stop Docker, create the folders, and restart with `--build`:
-
-```bash
-docker compose down
-mkdir -p database mlruns
-docker compose up -d --build
-````
-
-The `--build` option forces Docker to rebuild instead of using the cache.
 
 
 
