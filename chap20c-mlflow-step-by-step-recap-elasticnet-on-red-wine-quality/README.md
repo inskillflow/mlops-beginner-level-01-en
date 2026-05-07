@@ -393,7 +393,7 @@ It works, but it runs the script in detached mode.
 ## Recommended version ⚠️⚠️ :
 
 ```bash
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.1 --l1_ratio 0.1
+docker compose exec mlflow python train.py --alpha 0.1 --l1_ratio 0.1
 ```
 
 This way, if something goes wrong, the error appears immediately in the console !!!!
