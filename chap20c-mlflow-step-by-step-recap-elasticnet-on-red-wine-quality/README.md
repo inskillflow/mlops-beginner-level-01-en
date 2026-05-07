@@ -167,7 +167,7 @@ l1_ratio = 0.5
 Command:
 
 ```bash
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.5 --l1_ratio 0.5
+docker compose exec mlflow python train.py --alpha 0.5 --l1_ratio 0.5
 ```
 
 Then check again:
@@ -192,7 +192,7 @@ l1_ratio = 0.9
 Command:
 
 ```bash
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.9 --l1_ratio 0.9
+docker compose exec mlflow python train.py --alpha 0.9 --l1_ratio 0.9
 ```
 
 Then check again:
@@ -315,9 +315,9 @@ mkdir -p database mlruns
 
 docker compose up -d --build
 
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.1 --l1_ratio 0.1
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.5 --l1_ratio 0.5
-docker compose exec mlflow python train_with_mlflow.py --alpha 0.9 --l1_ratio 0.9
+docker compose exec mlflow python train.py --alpha 0.1 --l1_ratio 0.1
+docker compose exec mlflow python train.py --alpha 0.5 --l1_ratio 0.5
+docker compose exec mlflow python train.py --alpha 0.9 --l1_ratio 0.9
 
 docker compose down
 ```
