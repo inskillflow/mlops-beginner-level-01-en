@@ -89,11 +89,15 @@ Create the required folders:
 mkdir -p database mlruns
 ```
 
-On Windows PowerShell:
+Or On Windows PowerShell:
 
 ```powershell
 New-Item -ItemType Directory -Force database, mlruns
 ```
+
+Or create the 2 folders manually (database and mlruns)
+
+
 
 Then start the MLflow server:
 
@@ -224,6 +228,82 @@ When you are finished:
 docker compose down       # keep all runs
 docker compose down -v    # wipe everything
 ```
+
+
+
+
+
+
+## ⚠️ Important warning — create the folders first
+
+⚠️ Be careful: if the two folders `database/` and `mlruns/` are not created before starting Docker, MLflow may not save the experiment data correctly.
+
+You may open the MLflow UI at:
+
+```text
+http://localhost:5000
+````
+
+but you may not see your runs, metrics, parameters, or artifacts.
+
+Before running Docker, create the two folders manually:
+
+```bash
+mkdir -p database mlruns
+```
+
+On Windows PowerShell:
+
+```powershell
+New-Item -ItemType Directory -Force database, mlruns
+```
+
+If you already started Docker without creating these folders, do this:
+
+```bash
+docker compose down
+mkdir -p database mlruns
+docker compose up -d --build
+```
+
+On Windows PowerShell:
+
+```powershell
+docker compose down
+New-Item -ItemType Directory -Force database, mlruns
+docker compose up -d --build
+```
+
+⚠️ The `--build` option is important here.
+
+It forces Docker to rebuild the image instead of reusing the previous cached version.
+
+Without `--build`, Docker may reuse the old cached configuration, and your fix may not be applied correctly.
+
+````
+
+Short version to put in the recap:
+
+```markdown
+⚠️ Important: create `database/` and `mlruns/` before starting Docker.
+
+If you forget them, stop Docker, create the folders, and restart with `--build`:
+
+```bash
+docker compose down
+mkdir -p database mlruns
+docker compose up -d --build
+````
+
+The `--build` option forces Docker to rebuild instead of using the cache.
+
+
+
+
+
+
+
+
 
 ---
 
