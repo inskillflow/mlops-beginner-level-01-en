@@ -1,4 +1,4 @@
-# Quiz - chap01 to chap05 - MLflow concepts (Multiple Choice, English)
+# Quiz - chap01 to chap05 - MLflow concepts (Multiple Choice)
 
 50 multiple-choice questions, no answers.
 
