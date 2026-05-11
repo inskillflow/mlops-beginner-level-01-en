@@ -1,302 +1,462 @@
-# Quiz - chap01 to chap05 - MLflow concepts, objectives and comparing experiments (English version)
+# Quiz - chap01 to chap05 - MLflow concepts (Multiple Choice, English)
 
-50 questions, no answers.
+50 multiple-choice questions, no answers.
 
-This quiz focuses on **MLflow concepts**, **the objective of each chapter file**, and **how to compare experiments**. It is NOT a troubleshooting quiz.
-
-Chapters covered:
-
-- chap01 - Hello MLflow basics
-- chap02 - Print the tracking URI
-- chap03 - First ElasticNet pipeline on red-wine-quality
-- chap04 - Running the training in a second Docker service
-- chap05 - Passing the tracking URI via an environment variable
+Focus: **what MLflow is**, **why it exists**, **the objective of each chapter**, **MLflow concepts** (experiments, runs, params, metrics, artifacts, tags), and **comparing experiments**. NO troubleshooting questions.
 
 > [!TIP]
-> Write your answers in your own words. For multiple-choice questions, pick the right answer **and** explain in one sentence why the other options are wrong. For "TRUE / FALSE" questions, justify your answer in one sentence.
+> Pick **one** answer (A, B, C or D) for each question. For every question, also explain in one sentence **why the other three options are wrong**.
 
 ---
 
 ## Section 1 - What is MLflow and why does it exist?
 
 ### Question 1
-In one sentence, what is **MLflow**? Mention the type of project it belongs to (library? framework? platform?) and the language(s) you can use it from.
+What is MLflow?
+
+A) A Python web framework for serving HTTP APIs<br/>
+B) An open-source platform for managing the end-to-end ML lifecycle (tracking, models, registry, projects)<br/>
+C) A cloud-only paid service for monitoring ML in production<br/>
+D) A scikit-learn replacement for training models
 
 ### Question 2
-MLflow is built around four major components:
-- **Tracking**
-- **Projects**
-- **Models**
-- **Model Registry**
+Which of the following is **NOT** one of the four MLflow components?
 
-Briefly define each one in 1 to 2 sentences.
+A) Tracking<br/>
+B) Projects<br/>
+C) Models<br/>
+D) Inference Gateway
 
 ### Question 3
-Which of the four MLflow components is at the **heart** of chapters 01 to 05? Justify in one sentence.
+The four core MLflow components are Tracking, Projects, Models, and:
+
+A) Model Registry<br/>
+B) Model Marketplace<br/>
+C) Model Lab<br/>
+D) Model Server
 
 ### Question 4
-List **three pains** that a data scientist experiences **without** MLflow when they train many models per week (for example: "I forgot the value of `alpha` that gave my best model two days ago").
+Which MLflow component is at the heart of chapters 01 to 05?
+
+A) Projects<br/>
+B) Model Registry<br/>
+C) Tracking<br/>
+D) Models
 
 ### Question 5
-What does it mean to say MLflow is "**framework-agnostic**"? Cite **two ML libraries** other than scikit-learn that MLflow supports natively.
+MLflow is best described as:
+
+A) Framework-specific (works only with TensorFlow)<br/>
+B) Framework-agnostic (works with scikit-learn, PyTorch, TF, XGBoost, etc.)<br/>
+C) Language-specific (Python only, with no Java/R/REST support)<br/>
+D) Cloud-specific (Azure ML only)
 
 ### Question 6
-**TRUE / FALSE**: MLflow stores both the **model itself** (a `.pkl` file or equivalent) **and** the **metrics, params and tags** that describe how it was trained.
-Justify your answer in one sentence.
+Which problem does MLflow primarily help solve?
+
+A) Distributing model training across a GPU cluster<br/>
+B) Tracking which hyperparameters produced which metrics and which artifacts<br/>
+C) Writing the training code itself<br/>
+D) Replacing scikit-learn as an ML library
 
 ### Question 7
-**Quick-fire**: in MLflow, what is the difference between an **experiment** and a **run**? Give a one-sentence definition for each.
+A data scientist who trains 20 models per week WITHOUT MLflow typically suffers from:
+
+A) GPU shortages<br/>
+B) Lack of internet connectivity<br/>
+C) Loss of traceability between hyperparameters, metrics and saved models<br/>
+D) Slow training speed
 
 ### Question 8
-Among the following statements about MLflow, which ones are **true**? (more than one may be correct)
-- a) MLflow needs a paid license for commercial use.
-- b) MLflow can run entirely offline on a laptop.
-- c) MLflow requires a GPU.
-- d) MLflow can serve a logged model as a REST API.
-- e) MLflow only works with Python.
+MLflow runs on:
+
+A) Only Linux<br/>
+B) Only Windows<br/>
+C) Only macOS<br/>
+D) Linux, Windows and macOS (anywhere Python or Docker runs)
+
+### Question 9
+MLflow can be:
+
+A) Used only via the paid Databricks managed version<br/>
+B) Self-hosted offline on a laptop, completely free of charge<br/>
+C) Used only as a SaaS hosted by MLflow Inc.<br/>
+D) Used only inside Kubernetes clusters
+
+### Question 10
+Which statement about MLflow Tracking is TRUE?
+
+A) MLflow stores only metrics, not the model itself<br/>
+B) MLflow stores only the model, not the metrics or params<br/>
+C) MLflow stores both the trained model (artifact) AND the params, metrics and tags that describe how it was trained<br/>
+D) MLflow stores nothing on disk; it only displays values in the UI
 
 ---
 
 ## Section 2 - The objective of each chapter file
 
-### Question 9
-**chap01 - Hello MLflow basics**.
-In your own words, what is the **single concrete thing** the student must be able to do after finishing this chapter? Limit your answer to two sentences.
-
-### Question 10
-**chap02 - Print the tracking URI**.
-The whole chapter adds **one line** to chap01:
-
-```python
-print("Tracking URI:", mlflow.get_tracking_uri())
-```
-
-Why does the course dedicate an entire chapter to a single print statement? What concept is the student supposed to internalise?
-
 ### Question 11
-**chap03 - First ElasticNet pipeline on red-wine-quality**.
-What new MLflow features does chap03 introduce that did NOT appear in chap01 or chap02? List at least **four** API calls or concepts.
+The objective of **chap01 (Hello MLflow basics)** is to:
+
+A) Train a full ElasticNet pipeline with multiple metrics<br/>
+B) Boot a minimal MLflow server in Docker and create one trivial run<br/>
+C) Compare 10 experiments side by side<br/>
+D) Deploy a model as a REST API
 
 ### Question 12
-**chap04 - Running the training in a second Docker service**.
-This chapter is the only one in the series where the **first run does NOT appear in the MLflow UI**. Why is this **intentional**? What does the student learn from this "broken-by-design" experience?
+The objective of **chap02 (Print the tracking URI)** is to:
+
+A) Refactor the codebase to support multiple URIs<br/>
+B) Connect MLflow to AWS S3<br/>
+C) Make the student aware of WHERE MLflow is currently writing data, before logging anything serious<br/>
+D) Print the run_id of every active run
 
 ### Question 13
-**chap05 - Passing the tracking URI via an environment variable**.
-Why is the **fix** for the chap04 bug introduced as a **separate chapter** rather than being included directly in chap04?
+chap02 differs from chap01 by:
+
+A) Adding a brand new Docker service<br/>
+B) Adding a single line: `print("Tracking URI:", mlflow.get_tracking_uri())`<br/>
+C) Replacing SQLite with Postgres<br/>
+D) Adding a model registry
 
 ### Question 14
-Looking at the progression chap01 → chap02 → chap03 → chap04 → chap05, fill in the blank:
-"The course teaches MLflow by **adding one new concept per chapter**, starting from a minimal `start_run` and ending with `___________`."
+The objective of **chap03 (ElasticNet on red-wine-quality)** is to:
+
+A) Run the SAME model with THREE different hyperparameter sets and compare them in the UI<br/>
+B) Deploy the model to production behind a load balancer<br/>
+C) Replace ElasticNet with XGBoost<br/>
+D) Add a CI/CD pipeline
 
 ### Question 15
-**Pedagogical question**: why do chap01 and chap02 use `docker compose exec mlflow python train.py` (running the script **inside** the MLflow server container), while chap04 and chap05 switch to a separate `trainer` service running via `docker compose run --rm trainer ...`? What lesson is the course trying to teach by making this switch?
+Which MLflow API calls does chap03 introduce that did NOT exist in chap01 or chap02?
+
+A) Only `mlflow.log_metric()`<br/>
+B) `mlflow.log_param()`, `mlflow.log_metric()` AND `mlflow.sklearn.log_model()`<br/>
+C) Only `mlflow.log_artifact()`<br/>
+D) Only `mlflow.set_experiment()`
+
+### Question 16
+The objective of **chap04 (trainer in a second Docker service)** is to:
+
+A) Replace MLflow with TensorBoard<br/>
+B) Move the training script OUT of the MLflow server container and INTO its own dedicated `trainer` service<br/>
+C) Deploy MLflow on Kubernetes<br/>
+D) Encrypt the SQLite database
+
+### Question 17
+The "broken-by-design" surprise of chap04 is:
+
+A) The MLflow server fails to start<br/>
+B) The training crashes with a Python error<br/>
+C) The runs VANISH because the trainer writes to `file:///code/mlruns` INSIDE its own container, which then gets deleted by `--rm`<br/>
+D) The Docker image cannot be built
+
+### Question 18
+The objective of **chap05 (env var)** is to:
+
+A) Hardcode the URI inside `train.py`<br/>
+B) Fix the chap04 bug by injecting `MLFLOW_TRACKING_URI` from `docker-compose.yml` and reading it with `os.getenv(...)`<br/>
+C) Add a model registry<br/>
+D) Add multi-user authentication
+
+### Question 19
+Why does chap05 use `os.getenv("MLFLOW_TRACKING_URI", "http://mlflow:5000")` instead of `mlflow.set_tracking_uri("http://mlflow:5000")` directly?
+
+A) `os.getenv` is faster than `set_tracking_uri`<br/>
+B) To follow the 12-factor app pattern (config from env, not hardcoded in source)<br/>
+C) Because MLflow does not support `set_tracking_uri()`<br/>
+D) Because Docker forbids hardcoded URLs in Python files
+
+### Question 20
+Why is the fix introduced as a SEPARATE chapter (chap05) instead of being merged directly into chap04?
+
+A) Because the fix requires a different Python version<br/>
+B) Because the course wants the student to FEEL the bug in chap04 before learning the fix in chap05<br/>
+C) Because chap05 uses a different operating system<br/>
+D) Because the fix is too complex for a single chapter
+
+### Question 21
+The chap01 → chap05 progression teaches MLflow by:
+
+A) Dumping all features into chap01<br/>
+B) Adding ONE new concept per chapter, building up complexity gradually<br/>
+C) Starting with the most advanced topics first<br/>
+D) Focusing only on the model registry
+
+### Question 22
+The progression chap01 → chap05 ends with:
+
+A) A multi-service Docker setup where the trainer reads its tracking URI from an environment variable<br/>
+B) A single container running MLflow on a developer laptop<br/>
+C) A Kubernetes deployment with Helm charts<br/>
+D) A serverless AWS Lambda function
+
+### Question 23
+Why does the course switch from `docker compose exec mlflow python train.py` (chap01-03) to `docker compose run --rm trainer ...` (chap04+)?
+
+A) Because `docker compose exec` was deprecated<br/>
+B) To SEPARATE the training environment (with sklearn/pandas) from the MLflow server environment (mlflow only)<br/>
+C) Because `exec` requires root privileges<br/>
+D) Because `run` is mathematically faster than `exec`
 
 ---
 
 ## Section 3 - Experiments, runs, params, metrics, artifacts, tags
 
-### Question 16
-What does `mlflow.start_run()` actually do **behind the scenes**? Mention at least **three** things that happen the moment this function is called.
-
-### Question 17
-Match each of the following data points with the right MLflow API:
-- a) `alpha = 0.5`
-- b) `rmse = 0.74`
-- c) `git_commit = "abc123"`
-- d) the trained `ElasticNet` object (pickled)
-- e) the source `train.py` file
-
-Choose from:
-- `mlflow.log_param(...)`
-- `mlflow.log_metric(...)`
-- `mlflow.set_tag(...)`
-- `mlflow.sklearn.log_model(...)`
-- `mlflow.log_artifact(...)`
-
-### Question 18
-**TRUE / FALSE**: a parameter (`log_param`) can be **updated** during a run (for example, change `alpha` from `0.5` to `0.6` halfway through training).
-Justify.
-
-### Question 19
-**TRUE / FALSE**: a metric (`log_metric`) can be **logged multiple times** during a single run, for example one `rmse` value per epoch.
-Justify.
-
-### Question 20
-What is a `run_id`? Why is it a **128-bit UUID** instead of a simple incremental integer like in a SQL database?
-
-### Question 21
-What is the **purpose of tags** on a run, beyond just decoration? Give **two concrete tag examples** that would be useful in a real ML project.
-
-### Question 22
-When chap03 calls `mlflow.sklearn.log_model(lr, "mymodel")`, what files end up under `artifacts/mymodel/` in the MLflow UI? Name at least **three** of them.
-
-### Question 23
-What is the difference between an **artifact** and a **metric** in MLflow? Give one example of each that does NOT belong to the other category.
-
 ### Question 24
-Where does MLflow store **metrics** (numerically) versus **artifacts** (binary blobs)? Why does the design separate the two?
+In MLflow, an **EXPERIMENT** is:
+
+A) A single execution of `train.py`<br/>
+B) A named container that groups related runs together (e.g., "wine_quality_elasticnet")<br/>
+C) The output file of a model<br/>
+D) A configuration file
 
 ### Question 25
-Cite **three pieces of metadata** that MLflow captures **automatically** for each run, without the user having to log anything explicitly.
+In MLflow, a **RUN** is:
+
+A) The same thing as an experiment<br/>
+B) A single execution of training code, with params, metrics, tags and artifacts attached<br/>
+C) A folder on disk only, with no metadata<br/>
+D) A REST API call
+
+### Question 26
+Which of the following should be logged with `mlflow.log_param()` ?
+
+A) The training time in seconds<br/>
+B) The value `alpha=0.5` used at training start<br/>
+C) The trained model `.pkl` file<br/>
+D) The validation RMSE
+
+### Question 27
+Which of the following should be logged with `mlflow.log_metric()` ?
+
+A) The git commit hash<br/>
+B) The training RMSE at the end of training<br/>
+C) The value `alpha=0.5`<br/>
+D) The version of scikit-learn
+
+### Question 28
+Which of the following should be logged with `mlflow.set_tag()` ?
+
+A) The training RMSE<br/>
+B) The trained ElasticNet object<br/>
+C) A short string label like `version=v1` or `owner=alice`<br/>
+D) The whole training dataset CSV
+
+### Question 29
+Which of the following should be logged with `mlflow.sklearn.log_model()` ?
+
+A) The training RMSE value<br/>
+B) The `alpha` hyperparameter value<br/>
+C) The trained `ElasticNet` Python object (the model itself)<br/>
+D) The dataset CSV file
+
+### Question 30
+A `run_id` in MLflow is:
+
+A) An incremental integer like 1, 2, 3<br/>
+B) A 128-bit UUID generated at run creation<br/>
+C) The current Unix timestamp<br/>
+D) The SHA-256 hash of the model weights
+
+### Question 31
+Why does MLflow use a UUID for `run_id` rather than an incremental integer?
+
+A) UUIDs take less storage than integers<br/>
+B) UUIDs allow many trackers (and many clients) to generate ids in parallel without collisions<br/>
+C) UUIDs are faster to sort in SQL<br/>
+D) MLflow actually uses incremental integers internally
+
+### Question 32
+Can a parameter logged with `log_param("alpha", 0.5)` be UPDATED later in the same run?
+
+A) Yes, the new value silently overwrites the old one<br/>
+B) No — params are IMMUTABLE once logged (a second call raises an exception)<br/>
+C) Yes, but only by an admin user<br/>
+D) Yes, but only with a paid license
+
+### Question 33
+Can a metric logged with `log_metric("rmse", x)` be logged MULTIPLE times in a single run?
+
+A) No, only one value per metric per run<br/>
+B) Yes — multiple logs produce a TIME SERIES (one value per step or per epoch), shown as a curve in the UI<br/>
+C) Yes, but only if you change the metric name each time<br/>
+D) No, MLflow raises an exception on the second call
+
+### Question 34
+The MLflow "Model" format is:
+
+A) A `.h5` file (Keras only)<br/>
+B) An `MLmodel` YAML file (alongside the model binary) that describes how to LOAD the model regardless of framework<br/>
+C) A pure `torch.save` `.pt` file<br/>
+D) An ONNX `.onnx` file only
+
+### Question 35
+Which of these is captured AUTOMATICALLY by MLflow for every run, with no explicit logging call?
+
+A) The user's git diff at run time<br/>
+B) The START TIME and END TIME of the run<br/>
+C) The full RAM dump of the Python process<br/>
+D) A screenshot of the developer's screen
+
+### Question 36
+MLflow Tracking separates METADATA storage (SQLite/Postgres) from ARTIFACT storage (filesystem/S3) because:
+
+A) Metadata is much larger than artifacts<br/>
+B) Artifacts are binary blobs that belong in object storage, while metadata is small structured data that belongs in a SQL DB<br/>
+C) The MLflow license requires it<br/>
+D) There is no separation; both go in the same place
 
 ---
 
 ## Section 4 - Comparing experiments (the heart of MLflow)
 
-### Question 26
-After running the three experiments of chap03 with the following hyperparameters:
-
-```text
-Run 1: alpha=0.1, l1_ratio=0.1
-Run 2: alpha=0.5, l1_ratio=0.5
-Run 3: alpha=0.9, l1_ratio=0.1
-```
-
-How would you **identify the best model** in the MLflow UI? Describe the exact steps (which column to sort, which value indicates "best").
-
-### Question 27
-RMSE, MAE and R² are the three metrics logged in chap03.
-- For **RMSE** and **MAE**, do you want to **minimise** or **maximise** the value?
-- For **R²**, what is the **maximum possible value**, and what does a value of **0** mean?
-
-### Question 28
-The MLflow UI offers a "**Compare**" button that lets you select multiple runs and view them side by side. Name **three things** the comparison view shows.
-
-### Question 29
-What is a **parallel coordinates plot** in the MLflow UI? Why is it especially useful when you have **many runs** with **many hyperparameters**?
-
-### Question 30
-In chap03, why does the lesson recommend running **three experiments instead of just one**? What is the **pedagogical and scientific reason**?
-
-### Question 31
-**Scenario**: you ran 50 experiments today. You want to find all the runs where `alpha < 0.3` **AND** `rmse < 0.7`. How would you do this in the MLflow UI? (Describe the feature, no need to give exact syntax.)
-
-### Question 32
-**TRUE / FALSE**: you can compare runs that belong to **different experiments** in the MLflow UI.
-Justify.
-
-### Question 33
-Imagine two runs with the same `alpha` and `l1_ratio` but different `rmse`. Cite **two possible reasons** for this difference, given what you know from the code in chap03.
-
-### Question 34
-Cite **three sortable columns** that the MLflow UI shows by default for a list of runs in an experiment.
-
-### Question 35
-What is the **role of the search bar** at the top of an experiment view? Give a concrete example of a search query you could write.
-
-### Question 36
-**Pedagogical question**: why is "comparing experiments" considered the **single most important value proposition** of MLflow Tracking? Try to answer in 2 to 3 sentences.
-
----
-
-## Section 5 - Tracking URI and where the data lives
-
 ### Question 37
-What is the **default value** of `mlflow.get_tracking_uri()` when **nothing** has been configured? Be precise about the format.
+To find your BEST ElasticNet model among 3 chap03 runs in the MLflow UI, you would:
+
+A) Open each run individually and write the metrics down on paper<br/>
+B) Sort the run list by the `rmse` column in ASCENDING order and pick the top one<br/>
+C) Use the Python API to query the SQLite file manually<br/>
+D) There is no way to compare runs in the UI
 
 ### Question 38
-Name the **three main URI schemes** that `mlflow.set_tracking_uri(...)` accepts and describe in one sentence what each one does:
-- `file://...`
-- `http://...` / `https://...`
-- `databricks` / `databricks://...`
+For RMSE and MAE, the BETTER model is the one with:
+
+A) The HIGHER value<br/>
+B) The LOWER value (closer to 0 is better)<br/>
+C) The value closest to 1.0<br/>
+D) The value closest to 0.5
 
 ### Question 39
-In chap04, the trainer's first run lands in `file:///code/mlruns` inside the container. Explain in 3 to 4 sentences **why this run never shows up in the MLflow UI** at `http://localhost:5000`.
+For R² (R-squared), the BETTER model is the one with:
+
+A) The LOWER value<br/>
+B) The value closest to 0<br/>
+C) The HIGHER value (closer to 1.0 is best)<br/>
+D) Any negative value
 
 ### Question 40
-In chap05, the URI is `http://mlflow:5000`. Why is the hostname **`mlflow`** rather than **`localhost`** or **`127.0.0.1`**? Where does the name `mlflow` come from?
+The MAXIMUM theoretical value of R² (perfect prediction) is:
+
+A) 0<br/>
+B) 0.5<br/>
+C) 1.0<br/>
+D) Infinity
 
 ### Question 41
-Cite the **precedence order** between these three configuration sources for the tracking URI, from highest priority to lowest:
-- explicit call to `mlflow.set_tracking_uri(...)` in the code,
-- environment variable `MLFLOW_TRACKING_URI`,
-- MLflow built-in default value.
+The MLflow UI **"Compare"** view (selecting multiple runs and clicking Compare) shows:
+
+A) Only the source code differences between runs<br/>
+B) A side-by-side table of params and metrics, plus scatter and parallel coordinates plots<br/>
+C) Only the trained model files<br/>
+D) Only the stdout logs
 
 ### Question 42
-**TRUE / FALSE**: if you completely remove the `mlflow.set_tracking_uri(...)` line from `train.py` in chap05, the runs will still appear in the UI **because** the `MLFLOW_TRACKING_URI` environment variable is set in `docker-compose.yml`.
-Justify.
+A **parallel coordinates plot** is most useful when you have:
 
----
-
-## Section 6 - The progression of the course (synthesis)
+A) One run with one hyperparameter<br/>
+B) MANY runs with MANY hyperparameters — to spot which combinations correlate with low loss<br/>
+C) No runs at all<br/>
+D) Only categorical features
 
 ### Question 43
-Fill in the missing chapter for each progression step:
-- chap01: run MLflow + a single `log_metric` call.
-- chap02: add `____________________`.
-- chap03: add `____________________`.
-- chap04: add `____________________`.
-- chap05: add `____________________`.
+In chap03 we deliberately run THREE experiments (not just one) because:
+
+A) MLflow requires at least three runs<br/>
+B) COMPARING runs is the only honest way to know which hyperparameters work best — one run alone tells you nothing<br/>
+C) The dataset has three columns<br/>
+D) Three is the minimum for statistical significance
 
 ### Question 44
-Looking back at chap01 to chap05, what is the **single MLflow API call** that was introduced in **every** chapter from chap03 onwards? Why is this call so central to MLflow?
+To FILTER runs in the MLflow UI where `alpha < 0.3` AND `metrics.rmse < 0.7`, you would use:
+
+A) The SEARCH BAR at the top of the experiment view, with a filter expression like `params.alpha < 0.3 and metrics.rmse < 0.7`<br/>
+B) The Python REPL with manual loops<br/>
+C) A direct SQL query on the SQLite database<br/>
+D) A shell script
 
 ### Question 45
-Why does chap04 split the project into **two separate Docker images** (`mlflow` server image + `trainer` training image) instead of running everything in a single container? Cite at least **two reasons**.
+Can you compare runs that belong to DIFFERENT experiments in the MLflow UI?
+
+A) No, comparison is limited to a single experiment<br/>
+B) Yes, you can pick runs across multiple experiments and compare them together<br/>
+C) Only with a paid Databricks license<br/>
+D) Only if the experiments share the same name
 
 ### Question 46
-What is the difference between a **named Docker volume** (`mlflow-db`) and a **bind mount** (`./database:/mlflow/database`) in terms of:
-- where the data is stored,
-- portability across machines,
-- visibility from the host file explorer?
+Two runs with the SAME `alpha` and `l1_ratio` can still produce DIFFERENT `rmse` values because:
+
+A) MLflow randomly perturbs the metrics it stores<br/>
+B) The random seed (`np.random.seed` / `random_state`) was different, or the `train_test_split` produced a different split<br/>
+C) MLflow does not record metrics deterministically<br/>
+D) It is impossible for them to differ
 
 ### Question 47
-In chap05, the `docker-compose.yml` declares:
+Why is "comparing experiments" considered the SINGLE MOST IMPORTANT value of MLflow Tracking?
 
-```yaml
-trainer:
-  depends_on:
-    mlflow:
-      condition: service_healthy
-```
+A) Because comparison is faster than training<br/>
+B) Because WITHOUT comparison, hyperparameter optimisation becomes invisible guesswork — you cannot improve what you cannot measure side by side<br/>
+C) Because MLflow can only do comparison and nothing else<br/>
+D) Because comparison saves money on GPU bills
 
-In one sentence, what does `service_healthy` guarantee that a plain `depends_on: [mlflow]` does **NOT** guarantee?
+---
+
+## Section 5 - Tracking URI, hosts and config precedence
 
 ### Question 48
-**Open question**: if you had to extend chap05 by adding a **fourth experiment** with `(alpha=0.3, l1_ratio=0.7)`, give the **exact command** you would type. (Do not run it; just write it.)
+The DEFAULT value of `mlflow.get_tracking_uri()` when NOTHING has been configured is:
+
+A) `http://localhost:5000`<br/>
+B) `file:///<current working directory>/mlruns`<br/>
+C) `sqlite:///mlflow.db`<br/>
+D) `databricks`
 
 ### Question 49
-**Scenario**: a new colleague clones the repository on their laptop and types:
+In chap05, the tracking URI is `http://mlflow:5000`. The hostname **`mlflow`** comes from:
 
-```bash
-cd chap05-mlflow-step-by-step-recap-passing-tracking-uri-via-env-var
-docker compose up -d --build mlflow
-docker compose run --rm trainer --alpha 0.1 --l1_ratio 0.1
-```
-
-In **what order** do the following events happen?
-1. The MLflow UI becomes reachable at `http://localhost:5000`.
-2. The MLflow server's healthcheck reports `healthy`.
-3. The trainer image is built.
-4. The MLflow image is built.
-5. The trainer container reads `MLFLOW_TRACKING_URI` from its environment.
-6. A new run appears in the experiment `experiment_1`.
-
-Order them from 1 to 6.
+A) The DNS server of the host machine<br/>
+B) The `/etc/hosts` file edited manually<br/>
+C) The service NAME `mlflow` declared in `docker-compose.yml`, resolved by Docker's internal DNS on the shared bridge network `recap-net`<br/>
+D) MLflow's internal hardcoded hostname
 
 ### Question 50
-**Synthesis question** (long answer, 5 to 10 sentences).
-You are interviewing for a junior MLOps role. The interviewer asks:
+The PRECEDENCE order between configuration sources for the tracking URI, from HIGHEST to LOWEST priority, is:
 
-> "We have a small team of three data scientists. Each one trains models on their laptop and emails me the metrics. Should we adopt MLflow? Why or why not?"
-
-Write the answer you would give. Mention at least:
-- two **benefits** MLflow brings to this team,
-- one **cost or downside** of adopting MLflow,
-- whether you would also bring Docker into the picture (and why),
-- one **alternative** that is sometimes used instead of MLflow.
+A) MLflow default → environment variable → `mlflow.set_tracking_uri()`<br/>
+B) `mlflow.set_tracking_uri()` in code → environment variable `MLFLOW_TRACKING_URI` → MLflow default<br/>
+C) Environment variable → MLflow default → `mlflow.set_tracking_uri()`<br/>
+D) All three have equal priority and any of them can win randomly
 
 ---
 
-# Appendix - Look-ahead questions (bonus, not in the 50)
+# Appendix - Look-ahead questions (bonus, NOT counted in the 50)
 
-- **B1.** What is a **model signature** in MLflow? Why is it useful at serving time? (covered in chap14+)
-- **B2.** What is the difference between `mlflow.sklearn.log_model` and `mlflow.pyfunc.log_model`? When would you prefer one over the other? (covered in chap16+)
-- **B3.** What is the **MLflow Model Registry** and how does it differ from the **Tracking** server? Why does it usually require a real database like Postgres rather than SQLite? (covered in chap21+)
+### Question B1
+A **model signature** in MLflow is:
+
+A) A digital cryptographic signature for the model file<br/>
+B) A schema describing the input/output column names and dtypes the model expects at inference<br/>
+C) The author's name and email<br/>
+D) The git commit hash that produced the model
+
+### Question B2
+The difference between `mlflow.sklearn.log_model()` and `mlflow.pyfunc.log_model()` is:
+
+A) There is no difference; they are aliases<br/>
+B) `sklearn.log_model` is framework-specific; `pyfunc.log_model` lets you wrap ANY Python callable as an MLflow model<br/>
+C) `pyfunc` is only for TensorFlow<br/>
+D) `sklearn.log_model` is deprecated
+
+### Question B3
+The MLflow **Model Registry** differs from the Tracking server because:
+
+A) It stores models in a separate place, with versions, stages (Staging/Production) and approval workflows<br/>
+B) It does the same thing as Tracking under a different name<br/>
+C) It is a third-party paid product<br/>
+D) It only works with cloud storage
 
 ---
 
-**End of quiz - 50 questions, chapters 01 to 05.**
+**End of quiz - 50 multiple-choice questions, chapters 01 to 05.**
 
-Happy revising!
+Pick your answers and discuss them in pairs.
