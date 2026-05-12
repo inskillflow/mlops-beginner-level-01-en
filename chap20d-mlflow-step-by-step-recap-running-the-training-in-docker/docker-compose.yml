@@ -3,7 +3,7 @@ services:
     build:
       context: ./mlflow
     image: mlops/mlflow-recap:latest
-    container_name: mlflow-recap-20d
+    container_name: mlflow-recap-04
     ports:
       - "5000:5000"
     volumes:
@@ -22,7 +22,7 @@ services:
     build:
       context: ./trainer
     image: mlops/trainer-recap:latest
-    container_name: trainer-recap-20d
+    container_name: trainer-recap-04
     volumes:
       - ./data:/code/data
     networks:
